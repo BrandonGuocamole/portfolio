@@ -18,11 +18,7 @@ export function Projects() {
           return 1;
         })
         .map((post) => (
-          <Link
-            key={post.slug}
-            className="flex flex-col space-y-1 mb-4"
-            href={`/projects/${post.slug}`}
-          >
+          <>
             <CardContainer className="inter-var">
               <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
                 <CardItem
@@ -39,6 +35,7 @@ export function Projects() {
                   {post.metadata.summary}
                 </CardItem>
                 <CardItem translateZ="50" className="w-full mt-4">
+                  <Link href={post.metadata.url || "/"}>
                   <Image
                     src="/projects/practiced.png"
                     height="1000"
@@ -46,38 +43,31 @@ export function Projects() {
                     className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
                     alt="thumbnail"
                   />
+                  </Link>
                 </CardItem>
                 <div className="flex justify-between items-center mt-20">
-                  <CardItem
-                    translateZ={20}
-                    as={Link}
-                    href="https://twitter.com/mannupaaji"
-                    target="__blank"
-                    className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
-                  >
-                    Try now →
+                    <CardItem
+                      translateZ={20}
+                      as={Link}
+                      href={`/projects/${post.slug}`}
+                      target="__blank"
+                      className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
+                    >
+                      Read the blog post →
                   </CardItem>
+                  <Link href={post.metadata.url || "/"}>
                   <CardItem
                     translateZ={20}
                     as="button"
                     className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
                   >
-                    Sign up
+                    Visit the site
                   </CardItem>
+                  </Link>
                 </div>
               </CardBody>
             </CardContainer>
-
-            <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2">
-              <p className="text-neutral-600 dark:text-neutral-400 w-[100px] tabular-nums">
-                {formatDate(post.metadata.publishedAt, false)}
-              </p>
-              <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
-                {post.metadata.title}
-              </p>
-            </div>
-            <hr className="my-6 border-neutral-100 dark:border-neutral-800"></hr>
-          </Link>
+          </>
         ))}
     </div>
   );

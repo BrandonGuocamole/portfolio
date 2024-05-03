@@ -27,7 +27,7 @@ https://brandonguo.dev
 Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [pnpm](https://pnpm.io/installation) to bootstrap the example:
 
 ```bash
-pnpm create next-app --example https://github.com/BrandonGuocamole/nextjs-portfolio blog
+pnpm create next-app --example https://github.com/BrandonGuocamole/portfolio blog
 ```
 
 Then, run Next.js in development mode:
